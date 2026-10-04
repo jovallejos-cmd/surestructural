@@ -1,0 +1,119 @@
+SUR ESTRUCTURAL - www.surestructural.cl
+=======================================
+
+CONTENIDO
+  index.html                         Página principal (catálogo, cotizador, carrito, contacto)
+  precios.js                         PRECIOS E IMPUESTOS (lo usan la página y el cobro)
+  gracias.html                       Página a la que vuelve el cliente después de pagar
+  creditos.html                      Créditos de las fotos (Unsplash)
+  netlify/functions/crear-pago.js    Crea el cobro en Mercado Pago (corre en Netlify)
+  netlify.toml                       Configuración de Netlify
+  img/                               Fotografías y logo
+
+CÓMO SE CALCULAN LOS IMPUESTOS (precios.js)
+  Los precios publicados son NETOS.
+  - Factura:                         total = neto + 19 % IVA
+  - Boleta honorarios, persona:      el cliente paga el BRUTO = neto ÷ 0,8475
+                                     (la retención de 15,25 % la declaras tú al SII)
+  - Boleta honorarios, empresa:      el cliente paga el NETO (líquido); su empresa retiene
+                                     el 15,25 % del bruto y lo declara en su F29
+  Ojo: el bruto se calcula DIVIDIENDO por 0,8475, no multiplicando por 1,1525.
+  Ejemplo $500.000 neto → boleta bruta $589.971 → retención $89.971 → líquido $500.000.
+  La retención sube: 2027 = 16 % (cambia retencion a 0.16), 2028 = 17 % (0.17).
+
+CÓMO CAMBIAR TUS DATOS
+  - Contacto: en index.html busca "CONFIGURACIÓN" (whatsapp, whatsappTexto, email).
+    En gracias.html el WhatsApp y el correo están escritos directamente: búscalos y cámbialos también.
+  - Precios: en precios.js. Si cambias un precio, revisa también en index.html la pregunta
+    "¿Cuánto cuesta...?" y la línea "Casas desde... Galpones desde..." de la portada.
+  - Sección Nosotros: en index.html busca "EDITAR" y agrega el nombre del ingeniero responsable.
+
+
+PUBLICAR LA PÁGINA CON PAGO EN LÍNEA (Mercado Pago + Netlify, gratis)
+=====================================================================
+Importante: para que funcione el cobro, la página debe publicarse desde GitHub.
+La opción de "arrastrar la carpeta" a Netlify NO activa el cobro.
+
+DOS CUENTAS DE MERCADO PAGO
+  - Boleta de honorarios (persona natural o empresa) → tu cuenta PERSONAL
+  - Factura                                           → la cuenta de la EMPRESA (otro RUT)
+  La página elige la cuenta sola según el documento que marque el cliente en el carrito.
+
+PASO 1 · Credenciales de Mercado Pago (hazlo DOS veces: una con cada cuenta)
+  1. Cierra sesión en Mercado Pago e inicia sesión con la cuenta que vas a conectar
+     (primero la personal, después la de la empresa).
+  2. Entra a https://www.mercadopago.cl/developers/panel/app → "Crear aplicación".
+  3. Responde: nombre "Sur Estructural" · tipo de solución "Pagos online" ·
+     ¿usas plataforma de e-commerce? "No" · producto "Checkout Pro". Acepta y crea.
+  4. Dentro de la aplicación abre "Credenciales de producción". Si lo pide, actívalas
+     indicando el rubro (servicios profesionales) y la dirección de tu sitio.
+  5. Copia el "Access Token" (empieza con APP_USR-). Es secreto: no lo pegues en ningún
+     archivo, no lo envíes por chat ni correo. Solo va en Netlify (Paso 4).
+
+PASO 2 · Subir los archivos a GitHub
+  1. Crea una cuenta en https://github.com y un repositorio nuevo llamado "surestructural" (puede ser privado).
+  2. En el repositorio: "Add file" → "Upload files" → arrastra TODO el contenido de esta carpeta
+     (index.html, precios.js, gracias.html, creditos.html, LEEME.txt, netlify.toml, y las carpetas img y netlify).
+  3. Presiona "Commit changes".
+
+PASO 3 · Publicar en Netlify
+  1. Entra a https://app.netlify.com e inicia sesión con tu cuenta de GitHub.
+  2. "Add new site" → "Import an existing project" → GitHub → elige "surestructural".
+  3. Deja el comando de build vacío y presiona "Deploy".
+  4. Netlify te dará una dirección tipo https://surestructural.netlify.app
+
+PASO 4 · Conectar las dos cuentas en Netlify
+  En Netlify: "Site configuration" → "Environment variables" → "Add a variable" →
+  "Add a single variable". Crea estas tres (marca "Contains secret values" en los tokens):
+    MP_ACCESS_TOKEN_PERSONA    Access Token de tu cuenta personal (boletas)
+    MP_ACCESS_TOKEN_EMPRESA    Access Token de la cuenta de la empresa (facturas)
+    PERMITIR_PRUEBA            si        (solo mientras haces pruebas)
+  Luego "Deploys" → "Trigger deploy" → "Deploy site" para que tome las variables.
+
+PASO 4b · Avisos por correo a arcoacerospa@gmail.com
+  La página envía un correo en cada uno de estos casos:
+    - Nueva consulta web                  (formulario de contacto)
+    - Nuevo pedido por WhatsApp           (botón "Prefiero coordinar por WhatsApp")
+    - Pago iniciado SE-...                (el cliente fue a pagar a Mercado Pago)
+    - Pago APROBADO / PENDIENTE / RECHAZADO SE-...   (cuando el cliente vuelve de Mercado Pago)
+  Para activarlos en Netlify:
+  1. Menú del sitio → "Forms" → "Enable form detection" (activar detección de formularios).
+  2. "Deploys" → "Trigger deploy" → "Deploy site" (para que Netlify encuentre los formularios
+     "contacto", "pedido" y "pago").
+  3. "Site configuration" → "Notifications" → "Emails and webhooks" →
+     "Form submission notifications" → "Add notification" → "Email notification".
+     Correo: arcoacerospa@gmail.com · Formulario: "Any form" (todos). Guardar.
+  4. Haz una consulta de prueba desde la página. Si el correo no llega en unos minutos,
+     revisa la carpeta Spam de Gmail y marca el mensaje como "No es spam".
+  Netlify incluye gratis 100 mensajes al mes. Todos quedan guardados también en "Forms".
+  El aviso de pago es informativo: confirma siempre el dinero en la Actividad de Mercado Pago.
+
+PASO 5 · Pruebas reales con $100
+  1. Abre tu sitio agregando ?prueba al final, por ejemplo:
+       https://surestructural.netlify.app/?prueba
+     Aparece un recuadro rojo "Modo prueba" con un producto de $100 neto (no se ve sin ?prueba).
+  2. Prueba la cuenta PERSONAL: agrega el producto, elige "Boleta de honorarios · persona natural"
+     y paga ($118 con retención). El dinero debe llegar a tu cuenta personal.
+  3. Prueba la cuenta de la EMPRESA: repite eligiendo "Factura" ($119 con IVA).
+     El dinero debe llegar a la cuenta de la empresa.
+  4. IMPORTANTE: no puedes pagarte a ti mismo. Para probar la cuenta personal paga con la
+     tarjeta o cuenta de la empresa (o de otra persona), y para probar la empresa paga con
+     tu tarjeta o cuenta personal. Si pagas con la misma cuenta que recibe, Mercado Pago lo rechaza.
+  5. Revisa que vuelvas a la página "gracias" y que el pago aparezca en "Actividad" de cada cuenta.
+  6. Devuelve los pagos de prueba desde Mercado Pago: Actividad → el pago → "Devolver dinero".
+  7. Si Mercado Pago rechaza el monto por ser muy bajo, en precios.js cambia
+     prueba: {... price:100} por price:1000 y vuelve a subir el archivo.
+  8. Al terminar, BORRA la variable PERMITIR_PRUEBA en Netlify y vuelve a publicar.
+     Desde ese momento la gente puede pagar de verdad.
+
+PASO 6 · Dominio surestructural.cl
+  1. Registra el dominio en https://www.nic.cl (necesitas RUT y pagar la inscripción anual).
+  2. En Netlify: "Domain management" → "Add a domain" → surestructural.cl
+  3. Copia en NIC Chile los servidores DNS que te indique Netlify.
+
+QUÉ PASA CUANDO ALGUIEN PAGA
+  - Mercado Pago avisa por correo a la cuenta que recibió el pago (personal si fue boleta,
+    empresa si fue factura) y el dinero aparece ahí, menos la comisión de Mercado Pago.
+  - En el pago verás el detalle: documento elegido, RUT/razón social, comuna, neto, bruto y retención o IVA.
+  - El cliente vuelve a gracias.html, donde puede enviarte sus planos por WhatsApp con el número de pedido.
+  - Las obras menores y los informes ("desde") no se pagan en línea: se cotizan por WhatsApp.

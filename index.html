@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sur Estructural | Cálculo estructural en línea en Chile</title>
+<meta name="description" content="Compra en línea el cálculo estructural de tu casa, ampliación o galpón. Casas desde $390.000 y galpones desde $600.000. Planos y memoria firmados por ingeniero civil. Factura o boleta de honorarios.">
+<link rel="canonical" href="https://www.surestructural.cl/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Sur Estructural · Cálculo estructural en línea">
+<meta property="og:description" content="Memoria de cálculo y planos estructurales firmados, listos para la Dirección de Obras.">
+<meta property="og:url" content="https://www.surestructural.cl/">
+<meta property="og:image" content="https://www.surestructural.cl/img/portada.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sur Estructural","url":"https://www.surestructural.cl/","image":"https://www.surestructural.cl/img/portada.jpg","description":"Proyectos de cálculo estructural en línea para casas, ampliaciones, galpones y obras menores en Chile.","areaServed":"CL","email":"jovallejos@gmail.com","telephone":"+56933455696","priceRange":"$390.000 - $1.800.000"}
+</script>
+<style>
+/* Layout: fondo blanco liso (igual que el logo), fotos de obra enmarcadas, catálogo como tabla de partidas.
+   Paleta tomada del logo: acero/hormigón (grises), madera, y el verde del bosque nativo. Tema claro único. */
+:root{
+  --paper:#ffffff; --sheet:#f5f6f3; --ink:#2b2d2f; --muted:#5f6466; --line:#dcdfda;
+  --steel:#3f6e24;      /* verde bosque: etiquetas y detalles */
+  --accent:#437a25;     /* verde hoja: botones principales */
+  --accent-ink:#ffffff;
+  --wood:#9a5a30;       /* madera del logo */
+  --copihue:#b8233b;    /* rojo copihue, solo en detalles mínimos */
+  --ok:#2f6b2a;
+  --f-display:"Montserrat",system-ui,"Segoe UI",sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body)}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.015em}
+p{margin:0}
+.eyebrow{font:500 .75rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:8px}
+/* hoja de coigüe: pequeño guiño al bosque nativo antes de cada etiqueta */
+.eyebrow::before{content:"";width:9px;height:14px;background:var(--accent);border-radius:0 100% 0 100%;transform:rotate(18deg);flex:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button{font:inherit;cursor:pointer}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;gap:24px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand .mark{height:52px;width:auto;flex:none}
+.brand .word{height:38px;width:auto;min-width:0}
+@media (max-width:520px){.brand .mark{height:40px}.brand .word{height:24px}.cart-btn .lbl{display:none}}
+.links{display:flex;gap:22px;margin-left:auto;font-size:.92rem}
+.links a{text-decoration:none;color:var(--muted)} .links a:hover{color:var(--ink)}
+.cart-btn{display:flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:8px 14px;border-radius:2px;font-weight:600;flex:none}
+.cart-btn .n{background:var(--copihue);color:#fff;font:500 .75rem/1 var(--f-mono);padding:4px 7px;border-radius:2px}
+@media (max-width:860px){.links{display:none}.cart-btn{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,80px) clamp(40px,6vw,72px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(2.2rem,5vw,4rem);font-weight:800;letter-spacing:-.025em;margin-block:14px 22px}
+.hero h1 em{font-style:normal;color:var(--steel)}
+.tagline{display:flex;align-items:center;gap:12px;margin-top:22px;font:700 clamp(1.2rem,2.4vw,1.65rem)/1.2 var(--f-display);color:var(--wood);letter-spacing:-.005em}
+.tagline svg{flex:none;color:var(--wood)}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:56ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:2px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.norms{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.norms span{font:500 .74rem/1 var(--f-mono);border:1px solid var(--line);background:var(--sheet);padding:7px 9px;color:var(--muted)}
+
+.sheet{background:var(--sheet);border:1.5px solid var(--ink);position:relative;margin:0}
+.sheet .photo{aspect-ratio:4/3;overflow:hidden;border-bottom:1.5px solid var(--ink);position:relative}
+.sheet .photo img{width:100%;height:100%;object-fit:cover}
+.sheet .photo svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.vineta{display:grid;grid-template-columns:1fr 1fr;font-family:var(--f-mono);font-size:.74rem}
+.vineta div{padding:9px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.vineta div:nth-child(2n){border-right:0}
+.vineta div:nth-last-child(-n+2){border-bottom:0}
+.vineta i{display:block;font-style:normal;color:var(--muted);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.vineta .wide{grid-column:1/-1;border-right:0}
+.stamp{position:absolute;top:-14px;right:16px;z-index:2;background:var(--wood);color:#fff;font:600 .7rem/1 var(--f-mono);letter-spacing:.1em;padding:7px 10px;text-transform:uppercase}
+
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;margin-bottom:40px}
+.sec-head p{color:var(--muted);max-width:52ch}
+@media (max-width:860px){.hero,.sec-head{grid-template-columns:1fr}}
+
+/* catálogo */
+.catalog{border-top:2px solid var(--ink)}
+.item{display:grid;grid-template-columns:220px 1fr 1.05fr;gap:28px;padding-block:28px;border-bottom:1px solid var(--line);align-items:start}
+.item > *{min-width:0}
+.thumb{position:relative;aspect-ratio:4/3;border:1px solid var(--ink);overflow:hidden;background:var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.item:hover .thumb img{transform:scale(1.04)}
+.thumb .code{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);font:500 .7rem/1 var(--f-mono);padding:5px 7px;letter-spacing:.06em}
+.item h3{font-size:1.35rem;font-weight:700;font-variation-settings:"wdth" 100;margin-bottom:6px}
+.item p{color:var(--muted);font-size:.95rem}
+.inc{list-style:none;margin:14px 0 0;padding:0;font-size:.86rem;display:grid;gap:4px}
+.inc li{padding-left:18px;position:relative}
+.inc li::before{content:"";position:absolute;left:1px;top:.42em;width:7px;height:10px;background:var(--accent);border-radius:0 100% 0 100%;transform:rotate(18deg)}
+/* tramos de precio */
+.tiers{border-top:1.5px solid var(--ink)}
+.tier{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding-block:11px;border-bottom:1px solid var(--line)}
+.tier .m{font:500 .82rem/1.3 var(--f-mono);color:var(--muted)}
+.tier .v{font:800 1.15rem/1 var(--f-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tier .v small{font:600 .7rem var(--f-mono);color:var(--steel);text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+.tier.over{grid-template-columns:1fr auto}
+.testbox{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin-block:20px 4px;padding:16px 18px;border:2px dashed var(--copihue);background:color-mix(in srgb,var(--copihue) 6%,var(--paper))}
+.testbox > *{min-width:0}
+.testbox b{color:var(--copihue);font-family:var(--f-display)}
+.testbox p{font-size:.85rem;color:var(--muted)}
+.testbox .tier{border-bottom:0}
+@media (max-width:760px){.testbox{grid-template-columns:1fr}}
+.tnote{margin-top:10px;font-size:.78rem;font-style:italic;color:var(--muted)}
+.tier.over a{font-size:.85rem;font-weight:600;color:var(--steel)}
+.add{background:var(--ink);color:var(--paper);border:0;padding:9px 13px;border-radius:2px;font-weight:600;font-size:.84rem;white-space:nowrap}
+.add:hover{background:var(--accent)}
+.add.done{background:var(--ok)}
+@media (max-width:960px){.item{grid-template-columns:200px 1fr;row-gap:18px}.tiers{grid-column:1/-1}}
+@media (max-width:560px){.item{grid-template-columns:1fr}.tier{grid-template-columns:1fr auto}.tier .add{grid-column:1/-1}}
+.note{font-size:.8rem;color:var(--muted);margin-top:16px}
+
+/* banda sísmica */
+.band{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);background:var(--sheet)}
+.band > *{min-width:0}
+.band .img{min-height:320px;position:relative;border-right:1.5px solid var(--ink)}
+.band .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band .txt{padding:clamp(24px,4vw,48px);display:grid;gap:18px;align-content:center}
+.band .txt p{color:var(--muted)}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.specs div{padding:14px 12px 0 0}
+.specs b{display:block;font:800 1.6rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.nod{font-style:italic;color:var(--steel)!important;border-left:3px solid var(--wood);padding-left:14px}
+.specs span{font:400 .74rem/1.4 var(--f-mono);color:var(--muted)}
+@media (max-width:860px){.band{grid-template-columns:1fr}.band .img{border-right:0;border-bottom:1.5px solid var(--ink);min-height:240px}}
+
+/* cotizador */
+.quote{display:grid;grid-template-columns:1.1fr .9fr;border:1.5px solid var(--ink);background:var(--sheet)}
+.quote > *{min-width:0}
+.qform{padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font:500 .72rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom:2px solid var(--ink);padding:11px 12px;border-radius:0;width:100%}
+input[type=range]{padding:0;border:0;background:transparent;accent-color:var(--steel)}
+.range-val{font:500 1rem var(--f-mono);text-transform:none;letter-spacing:0;color:var(--ink)}
+.qresult{background:var(--ink);color:#f2f4f0;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:18px}
+.qresult .eyebrow{color:#b5d99a}
+.qresult .eyebrow::before{background:#b5d99a}
+.big{font:800 clamp(2.4rem,4.6vw,3.3rem)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.big small{font:500 1rem var(--f-mono);margin-left:6px}
+.breakdown{font:400 .82rem/1.9 var(--f-mono);border-top:1px solid rgba(238,243,246,.25);padding-top:12px;font-variant-numeric:tabular-nums}
+.breakdown div{display:flex;justify-content:space-between;gap:12px}
+.qresult .btn{margin-top:auto;justify-content:center}
+.qresult .tramo{font:500 .85rem var(--f-mono);color:#cfd8c8}
+.scale{display:grid;gap:6px;border-top:1px solid rgba(242,244,240,.22);padding-top:14px}
+.scale div{display:flex;justify-content:space-between;gap:12px;font:400 .82rem/1.5 var(--f-mono);padding:6px 10px;border-left:3px solid transparent;opacity:.6;font-variant-numeric:tabular-nums}
+.scale div.on{opacity:1;border-left-color:#b5d99a;background:rgba(181,217,154,.12)}
+.qtax{display:grid;gap:2px;font:400 .82rem/1.6 var(--f-mono);font-variant-numeric:tabular-nums}
+.qtax div{display:flex;justify-content:space-between;gap:12px}
+.qtax span:last-child{color:#fff;font-weight:500}
+.m2row{display:grid;grid-template-columns:1fr 130px;gap:14px;align-items:center}
+.m2row input[type=number]{font-family:var(--f-mono)}
+.qform .hint{font-size:.85rem;color:var(--muted)}
+.paynote{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:.88rem;color:var(--muted)}
+.paynote span{display:inline-flex;align-items:center;gap:6px}
+.paynote span::before{content:"";width:7px;height:10px;background:var(--accent);border-radius:0 100% 0 100%;transform:rotate(18deg)}
+@media (max-width:860px){.quote{grid-template-columns:1fr}.qform{grid-template-columns:1fr}}
+
+/* proceso */
+.proc{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,48px);align-items:start}
+.proc > *{min-width:0}
+.proc figure{margin:0;border:1.5px solid var(--ink);aspect-ratio:4/5;overflow:hidden;position:sticky;top:90px}
+.proc figure img{width:100%;height:100%;object-fit:cover}
+.steps{display:grid;border-top:2px solid var(--ink)}
+.step{display:grid;grid-template-columns:90px 1fr;gap:16px;padding-block:20px;border-bottom:1px solid var(--line)}
+.step .k{font:500 .78rem var(--f-mono);color:var(--steel);padding-top:4px}
+.step h3{font-size:1.2rem;margin-bottom:6px;font-variation-settings:"wdth" 100}
+.step p{font-size:.94rem;color:var(--muted)}
+@media (max-width:860px){.proc{grid-template-columns:1fr}.proc figure{position:static;aspect-ratio:16/9}}
+
+/* nosotros */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center}
+.about > *{min-width:0}
+.about figure{margin:0;border:1.5px solid var(--ink);aspect-ratio:3/2;overflow:hidden}
+.about figure img{width:100%;height:100%;object-fit:cover}
+.about .txt{display:grid;gap:16px}
+.about .txt p{color:var(--muted)}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* faq */
+.faq{border-top:2px solid var(--ink)}
+details{border-bottom:1px solid var(--line);padding-block:18px}
+summary{cursor:pointer;font:700 1.1rem var(--f-display);font-variation-settings:"wdth" 100;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--f-mono);color:var(--steel)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:70ch}
+
+/* contacto */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.contact > *{min-width:0}
+.cform{display:grid;gap:12px;background:var(--sheet);border:1.5px solid var(--ink);padding:clamp(20px,3vw,32px)}
+.cinfo{display:grid;gap:18px;align-content:start}
+.cinfo a{font:500 1.05rem var(--f-mono);text-decoration:none;border-bottom:1px solid var(--line)}
+.cinfo a:hover{border-color:var(--accent)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* pie: línea de bosque nativo (araucarias y coigües) */
+.forest{display:block;width:100%;height:clamp(70px,9vw,110px);margin-top:clamp(24px,5vw,56px)}
+footer{border-top:3px solid var(--steel);padding-block:36px calc(28px + env(safe-area-inset-bottom,0px));font-size:.85rem;color:var(--muted)}
+.foot{display:grid;grid-template-columns:auto 1fr 1fr;gap:28px 48px;align-items:start}
+.foot > *{min-width:0}
+.foot .logo{width:220px;height:auto}
+.foot b{color:var(--ink);display:block;margin-bottom:4px}
+.foot nav{display:grid;gap:4px}
+.foot nav a{text-decoration:none} .foot nav a:hover{color:var(--accent)}
+.especies{grid-column:1/-1;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between;font:400 .74rem/1.5 var(--f-mono)}
+.especies i{color:var(--steel)}
+.copihue{display:inline-block;vertical-align:-3px;margin-right:4px}
+@media (max-width:760px){.foot{grid-template-columns:1fr}.foot .logo{width:200px}}
+
+/* carrito */
+.scrim{position:fixed;inset:0;background:rgba(10,16,20,.5);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--sheet);z-index:41;display:flex;flex-direction:column;border-left:1.5px solid var(--ink);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateX(100%);transition:transform .25s ease;visibility:hidden}
+.drawer.open{transform:none;visibility:visible}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:1.3rem;font-variation-settings:"wdth" 110}
+.x{background:none;border:0;color:var(--ink);font-size:1.6rem;line-height:1}
+.dbody{flex:1;overflow:auto;padding:8px 20px}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.line b{font-size:.95rem}
+.line small{color:var(--muted);font-size:.8rem;grid-column:1}
+.line .p{font:500 .95rem var(--f-mono);text-align:right}
+.line .rm{grid-column:2;background:none;border:0;color:var(--muted);font-size:.78rem;text-decoration:underline;justify-self:end}
+.empty{color:var(--muted);padding-block:28px;font-size:.95rem}
+.dfoot{padding:18px 20px;border-top:1.5px solid var(--ink);display:grid;gap:12px}
+.tot{display:flex;justify-content:space-between;font:700 1.2rem var(--f-display);font-variant-numeric:tabular-nums}
+.tot span:last-child{font-family:var(--f-mono);font-weight:500}
+.dfoot form{display:grid;gap:10px}
+.drawer{overflow-y:auto}
+.dbody{flex:1 0 auto;overflow:visible}
+.sum{display:grid;gap:4px;font-size:.9rem;font-variant-numeric:tabular-nums;padding-block:6px 4px}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum div span:last-child{font-family:var(--f-mono)}
+.sum .total{border-top:1.5px solid var(--ink);margin-top:4px;padding-top:8px;font:700 1.1rem var(--f-display)}
+.sum .total span:last-child{font-weight:500}
+.sum p{font-size:.8rem;color:var(--muted)}
+.sum .warn{color:var(--copihue)}
+#payMsg:not(:empty){color:var(--copihue)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.dfoot .btn{justify-content:center}
+.ok{background:color-mix(in srgb,var(--ok) 14%,var(--sheet));border:1px solid var(--ok);padding:14px;font-size:.92rem}
+.small{font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Sur Estructural, inicio">
+      <img class="mark" src="img/logo-s.png" alt="" width="148" height="162">
+      <img class="word" src="img/logo-texto.png" alt="Sur Estructural · Cálculo estructural, acero, hormigón y madera" width="1140" height="165">
+    </a>
+    <nav class="links" aria-label="Secciones">
+      <a href="#proyectos">Proyectos</a><a href="#cotizador">Cotizador</a><a href="#proceso">Proceso</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="cart-btn" id="openCart" type="button" aria-label="Abrir carrito"><span class="lbl">Carrito</span><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11h11L21 8H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><span class="n" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Cálculo estructural · Todo Chile</span>
+      <p class="tagline">
+        <svg width="46" height="18" viewBox="0 0 46 18" aria-hidden="true"><path d="M1 9 H10 L13 3 L17 15 L21 1 L25 17 L29 5 L32 12 L35 9 H45" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        Diseño sismorresistente para Chile
+      </p>
+      <h1>Tu proyecto calculado, firmado y listo para la <em>Dirección de Obras</em></h1>
+      <p class="lead">Compra en línea el cálculo estructural de tu casa, ampliación o galpón, con precio fijo según superficie. Memoria de cálculo y planos firmados por ingeniero civil, diseñados según la normativa sísmica chilena.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#proyectos">Ver proyectos y precios</a>
+        <a class="btn ghost" href="#cotizador">Cotizar por m²</a>
+      </div>
+      <div class="paynote"><span>Casas desde $390.000 neto</span><span>Galpones desde $600.000 neto</span><span>Pago con Mercado Pago</span><span>Factura o boleta de honorarios</span></div>
+      <div class="norms" aria-label="Normativa aplicada">
+        <span>NCh433 + DS61</span><span>NCh430 + DS60</span><span>NCh2369</span><span>NCh1198</span><span>NCh2123</span><span>NCh427</span><span>OGUC</span>
+      </div>
+    </div>
+
+    <figure class="sheet">
+      <span class="stamp">Lámina E-01</span>
+      <div class="photo">
+        <img src="img/portada.jpg" alt="Trabajadores sobre una losa de hormigón con armaduras a la vista en un edificio en construcción" width="1600" height="1200" fetchpriority="high">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="#f0b43a" stroke-width="1.2" fill="none" opacity=".9">
+            <path d="M14 286 H386 M14 280 V292 M386 280 V292"/>
+            <path d="M14 14 h18 M14 14 v18 M386 14 h-18 M386 14 v18"/>
+          </g>
+        </svg>
+      </div>
+      <div class="vineta">
+        <div class="wide"><i>Proyecto</i>Vivienda 2 pisos · Hormigón y albañilería</div>
+        <div><i>Zona sísmica</i>3 · A₀ = 0,40 g</div>
+        <div><i>Suelo</i>Tipo C (DS61)</div>
+        <div><i>Categoría</i>II · I = 1,0</div>
+        <div><i>Entrega</i>PDF + DWG firmados</div>
+      </div>
+    </figure>
+  </div>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Catálogo</span><h2 style="margin-top:12px">Proyectos de cálculo estructural</h2></div>
+        <p>Elige el tipo de proyecto, agrégalo al carrito y envía tus antecedentes. Todos incluyen memoria de cálculo, planos estructurales en PDF y DWG, y respuesta a observaciones de la DOM.</p>
+      </div>
+      <div class="catalog" id="catalog"></div>
+      <p class="note">Valores netos en pesos chilenos. Al pagar se agrega el IVA (19 %) si pides factura, o la retención de honorarios (15,25 %) si pides boleta. Pago 100 % anticipado con Mercado Pago. En obras menores e informes, el valor final se confirma al revisar el alcance, antes del pago.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="band">
+        <div class="img"><img src="img/armadura.jpg" alt="Barras de refuerzo de acero vistas desde abajo en una columna en construcción" loading="lazy" width="1600" height="1067"></div>
+        <div class="txt">
+          <span class="eyebrow">Diseño sismorresistente</span>
+          <h2>Calculado para un país que tiembla</h2>
+          <p>Cada proyecto se modela con análisis sísmico según NCh433 y el DS61, considerando la zona sísmica de la comuna y el tipo de suelo del terreno. Diseñamos fundaciones, muros, losas, vigas y conexiones para que tu obra cumpla la norma y pase la revisión municipal.</p>
+          <p class="nod">Como el coigüe que resiste el viento austral, una buena estructura se diseña desde sus raíces: las fundaciones.</p>
+          <div class="specs">
+            <div><b>3</b><span>zonas sísmicas cubiertas</span></div>
+            <div><b>A–E</b><span>tipos de suelo DS61</span></div>
+            <div><b>16</b><span>regiones de Chile</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cotizador" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Cotizador</span><h2 style="margin-top:12px">Calcula el valor según superficie</h2></div>
+        <p>Elige el tipo de proyecto e ingresa la superficie construida. El precio sale del tramo que corresponde y puedes agregarlo directo al carrito.</p>
+      </div>
+      <div class="quote">
+        <form class="qform" id="qform" onsubmit="return false">
+          <div class="field full">
+            <label for="qtipo">Tipo de proyecto</label>
+            <select id="qtipo">
+              <option value="VIV">Casa o ampliación</option>
+              <option value="GAL">Galpón</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="qm2n">Superficie construida (m²)</label>
+            <div class="m2row">
+              <input type="range" id="qm2" min="20" max="800" step="5" value="120" aria-label="Superficie construida">
+              <input type="number" id="qm2n" min="1" value="120" inputmode="numeric">
+            </div>
+          </div>
+          <p class="hint full" id="qHint" style="grid-column:1/-1"></p>
+        </form>
+        <div class="qresult" aria-live="polite">
+          <span class="eyebrow">Precio de tu proyecto</span>
+          <div class="big" id="qPrice">$0</div>
+          <div class="tramo" id="qTramo"></div>
+          <div class="qtax" id="qTax"></div>
+          <div class="scale" id="qScale"></div>
+          <button class="btn primary" type="button" id="qAdd">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Proceso</span><h2 style="margin-top:12px">De la compra al permiso de edificación</h2></div>
+        <p>Plazo habitual para una vivienda: 10 a 15 días hábiles desde que recibimos los antecedentes completos.</p>
+      </div>
+      <div class="proc">
+        <figure><img src="img/planos.jpg" alt="Ingeniero dibujando sobre un plano con lápiz y regla" loading="lazy" width="1600" height="900"></figure>
+        <div class="steps">
+          <div class="step"><span class="k">Paso 1</span><div><h3>Compra y pago</h3><p>Elige tu proyecto en el catálogo o en el cotizador y paga en línea con Mercado Pago. Te emitimos factura o boleta de honorarios.</p></div></div>
+          <div class="step"><span class="k">Paso 2</span><div><h3>Envía antecedentes</h3><p>Planos de arquitectura (DWG o PDF), ubicación del terreno y mecánica de suelos si la tienes.</p></div></div>
+          <div class="step"><span class="k">Paso 3</span><div><h3>Modelación y diseño</h3><p>Análisis sísmico modal espectral, diseño de elementos estructurales y fundaciones.</p></div></div>
+          <div class="step"><span class="k">Paso 4</span><div><h3>Entrega firmada</h3><p>Memoria de cálculo, planos y especificaciones técnicas firmados por el ingeniero, en PDF y DWG.</p></div></div>
+          <div class="step"><span class="k">Paso 5</span><div><h3>Ingreso a la DOM</h3><p>Respondemos las observaciones de la Dirección de Obras hasta la aprobación del permiso.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" style="padding-top:0">
+    <div class="wrap about">
+      <figure><img src="img/equipo.jpg" alt="Dos ingenieros revisando planos impresos sobre una mesa" loading="lazy" width="1600" height="1067"></figure>
+      <div class="txt">
+        <span class="eyebrow">Nosotros</span>
+        <h2>Ingeniería estructural hecha en Chile</h2>
+        <!-- EDITAR: agrega el nombre del ingeniero responsable, universidad y años de experiencia -->
+        <p>Sur Estructural es una oficina de ingeniería dedicada al cálculo estructural de casas, ampliaciones, galpones y obras menores. Trabajamos a distancia con clientes, arquitectos y constructoras de todas las regiones del país.</p>
+        <p>Cada proyecto lo desarrolla y firma un ingeniero civil, con el respaldo de la normativa chilena vigente y un trato directo durante todo el proceso, hasta que la Dirección de Obras aprueba tu permiso.</p>
+        <p class="nod">Nuestro nombre mira al sur: a sus bosques de araucarias, alerces y coigües, que llevan siglos en pie sobre suelo sísmico. Acero, hormigón y madera, calculados para durar igual.</p>
+        <div><a class="btn ghost" href="#contacto">Habla con un ingeniero</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Preguntas frecuentes</span><h2 style="margin-top:12px">Lo que nos preguntan antes de comprar</h2></div>
+      </div>
+      <div class="faq">
+        <details open><summary>¿Qué necesito enviar para empezar?</summary><p>Planos de arquitectura con plantas, cortes y elevaciones, la ubicación del terreno y, si existe, el informe de mecánica de suelos. Si no lo tienes, podemos coordinarlo con un laboratorio de tu zona.</p></details>
+        <details><summary>¿El proyecto sirve para pedir el permiso de edificación?</summary><p>Sí. Entregamos la memoria de cálculo y los planos estructurales firmados por ingeniero civil, que es lo que exige la Dirección de Obras Municipales junto al resto del expediente.</p></details>
+        <details><summary>¿Necesito revisor independiente de cálculo?</summary><p>Según la OGUC y la Ley 19.748, los edificios de uso público y ciertas obras de mayor tamaño lo requieren. Te indicamos si aplica a tu proyecto al revisar los antecedentes.</p></details>
+        <details><summary>¿Cómo se paga?</summary><p>El pago es 100 % anticipado, en línea con Mercado Pago: tarjeta de crédito, débito o transferencia. Comenzamos el cálculo apenas recibimos el pago y los antecedentes.</p></details>
+        <details><summary>¿Los precios incluyen impuestos?</summary><p>Los precios publicados son netos. Con factura se agrega el IVA de 19 %. Con boleta de honorarios se agrega la retención de 15,25 % (vigente en 2026): el monto bruto de la boleta se calcula para que, descontada la retención, quede el valor neto. Si eres persona natural pagas el bruto; si eres empresa pagas el neto y tu empresa retiene el 15,25 % y lo declara en su F29.</p></details>
+        <details><summary>¿Emiten factura?</summary><p>Sí. Emitimos factura o boleta de honorarios, según lo que necesites. Lo eliges en el carrito antes de pagar; para factura o boleta a empresa te pediremos RUT y razón social.</p></details>
+        <details><summary>¿Cuánto cuesta el cálculo de mi casa o galpón?</summary><p>Valores netos. Casas y ampliaciones: hasta 60 m² $390.000, hasta 140 m² $500.000 y hasta 500 m² $700.000. Galpones de planta rectangular: hasta 2.000 m² $600.000, hasta 5.000 m² $900.000 y sobre 5.000 m² $1.800.000. Obras menores e informes estructurales desde $390.000.</p></details>
+        <details><summary>¿Trabajan en todo Chile?</summary><p>Sí. Trabajamos a distancia con planos digitales en todas las regiones, considerando la zona sísmica y el tipo de suelo de cada comuna.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding-top:0">
+    <div class="wrap contact">
+      <div class="cinfo">
+        <span class="eyebrow">Contacto</span>
+        <h2>Cuéntanos tu proyecto</h2>
+        <p style="color:var(--muted)">Atendemos las 24 horas. Si ya tienes planos, envíalos por correo o WhatsApp y te damos un precio cerrado.</p>
+        <div><div class="small">Correo</div><a id="lnkMail" href="mailto:jovallejos@gmail.com">jovallejos@gmail.com</a></div>
+        <div><div class="small">WhatsApp</div><a id="lnkWa" href="https://wa.me/56933455696" target="_blank" rel="noopener">+56 9 3345 5696</a></div>
+        <div><div class="small">Documentos</div>Emitimos factura o boleta de honorarios</div>
+        <div><div class="small">Atención</div>24 horas, todos los días</div>
+      </div>
+      <form class="cform" id="cform">
+        <div class="field"><label for="fName">Nombre</label><input id="fName" required autocomplete="name"></div>
+        <div class="field"><label for="fMail">Correo</label><input id="fMail" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="fComuna">Comuna de la obra</label><input id="fComuna" required></div>
+        <div class="field"><label for="fMsg">Describe tu proyecto</label><textarea id="fMsg" rows="4" required placeholder="Ej.: ampliación de 35 m² en segundo piso, estructura de madera."></textarea></div>
+        <button class="btn primary" type="submit" style="justify-content:center">Enviar por WhatsApp</button>
+        <p class="small">Recibimos tu mensaje por correo y además se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+        <p class="ok" id="cformOk" hidden>Mensaje recibido. Te responderemos a la brevedad.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<svg class="forest" viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Silueta de bosque nativo con araucarias y coigües">
+  <defs>
+    <!-- araucaria: tronco recto y copa en forma de paraguas -->
+    <symbol id="arau" viewBox="0 0 60 110">
+      <path d="M30 110 V18" stroke="#2f5a1d" stroke-width="3"/>
+      <g stroke="#2f5a1d" stroke-width="4.5" stroke-linecap="round" fill="none">
+        <path d="M30 18 Q17 20 7 12"/><path d="M30 18 Q43 20 53 12"/>
+        <path d="M30 26 Q15 29 3 21"/><path d="M30 26 Q45 29 57 21"/>
+        <path d="M30 34 Q19 36 11 30"/><path d="M30 34 Q41 36 49 30"/>
+        <path d="M30 18 V8"/>
+      </g>
+    </symbol>
+    <!-- coigüe: follaje en capas horizontales -->
+    <symbol id="coi" viewBox="0 0 70 110">
+      <path d="M35 110 V40 M35 62 L22 50 M35 55 L48 44" stroke="#4a3626" stroke-width="3" fill="none"/>
+      <g fill="#5d8f3a">
+        <ellipse cx="35" cy="22" rx="20" ry="9"/><ellipse cx="22" cy="40" rx="18" ry="8"/>
+        <ellipse cx="49" cy="38" rx="17" ry="8"/><ellipse cx="35" cy="52" rx="15" ry="6"/>
+      </g>
+    </symbol>
+  </defs>
+  <!-- fila de fondo, más tenue, para dar profundidad -->
+  <g opacity=".3">
+    <use href="#arau" x="20" y="14" width="50" height="96"/>
+    <use href="#coi" x="105" y="26" width="70" height="84"/>
+    <use href="#arau" x="205" y="4" width="56" height="106"/>
+    <use href="#coi" x="380" y="22" width="72" height="88"/>
+    <use href="#arau" x="520" y="10" width="54" height="100"/>
+    <use href="#coi" x="600" y="30" width="68" height="80"/>
+    <use href="#coi" x="740" y="20" width="70" height="90"/>
+    <use href="#arau" x="900" y="6" width="56" height="104"/>
+    <use href="#coi" x="1080" y="24" width="72" height="86"/>
+  </g>
+  <path d="M0 108 H1200" stroke="#3f6e24" stroke-width="3"/>
+  <g>
+    <use href="#coi" x="10" y="40" width="56" height="70"/>
+    <use href="#arau" x="70" y="0" width="60" height="110"/>
+    <use href="#coi" x="140" y="30" width="64" height="80"/>
+    <use href="#coi" x="215" y="52" width="46" height="58"/>
+    <use href="#arau" x="270" y="22" width="48" height="88"/>
+    <use href="#coi" x="330" y="36" width="60" height="74"/>
+    <use href="#arau" x="420" y="8" width="56" height="102"/>
+    <use href="#coi" x="490" y="48" width="50" height="62"/>
+    <use href="#coi" x="560" y="28" width="66" height="82"/>
+    <use href="#arau" x="640" y="16" width="52" height="94"/>
+    <use href="#coi" x="700" y="44" width="52" height="66"/>
+    <use href="#arau" x="790" y="2" width="58" height="108"/>
+    <use href="#coi" x="860" y="34" width="62" height="76"/>
+    <use href="#coi" x="935" y="54" width="44" height="56"/>
+    <use href="#arau" x="990" y="20" width="50" height="90"/>
+    <use href="#coi" x="1050" y="32" width="64" height="78"/>
+    <use href="#arau" x="1130" y="10" width="54" height="100"/>
+  </g>
+</svg>
+<footer>
+  <div class="wrap foot">
+    <img class="logo" src="img/logo.webp" alt="Sur Estructural · Cálculo estructural, acero, hormigón y madera" width="1920" height="1280" loading="lazy">
+    <div>
+      <b>Sur Estructural</b>
+      Ingeniería y cálculo estructural para todo Chile.<br>
+      <span id="footMail">jovallejos@gmail.com</span> · <span id="footWa">+56 9 3345 5696</span><br>
+      www.surestructural.cl<br>
+      Emitimos factura o boleta de honorarios.
+    </div>
+    <nav aria-label="Pie de página">
+      <b>Secciones</b>
+      <a href="#proyectos">Proyectos y precios</a>
+      <a href="#cotizador">Cotizador por m²</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="especies">
+      <span>Inspirados en el bosque templado del sur de Chile · <i>Araucaria araucana</i> · <i>Fitzroya cupressoides</i> · <i>Nothofagus dombeyi</i></span>
+      <span><svg class="copihue" width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0 V3" stroke="#3f6e24" stroke-width="1.4"/><path d="M6 3 C1 4 0.5 11 1.5 15 L10.5 15 C11.5 11 11 4 6 3Z" fill="#b8233b"/></svg>Hecho en Chile · Fotografías: Unsplash (<a href="creditos.html">créditos</a>) · © <span id="yr">2026</span></span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Carrito de compra" aria-hidden="true">
+  <div class="dh"><h3>Tu carrito</h3><button class="x" id="closeCart" type="button" aria-label="Cerrar carrito">×</button></div>
+  <div class="dbody" id="cartLines"></div>
+  <div class="dfoot" id="cartFoot">
+    <form id="checkout">
+      <div class="field">
+        <label for="cDoc">Documento tributario</label>
+        <select id="cDoc">
+          <option value="BOLETA_PN">Boleta de honorarios · persona natural</option>
+          <option value="BOLETA_EM">Boleta de honorarios · empresa (retiene 15,25 %)</option>
+          <option value="FACTURA">Factura (+ IVA 19 %)</option>
+        </select>
+      </div>
+      <div class="sum" id="cartSum" aria-live="polite"></div>
+      <input id="cName" required placeholder="Nombre completo" autocomplete="name" aria-label="Nombre completo">
+      <input id="cMail" required type="email" placeholder="Correo electrónico" autocomplete="email" aria-label="Correo electrónico">
+      <input id="cComuna" required placeholder="Comuna de la obra" aria-label="Comuna de la obra">
+      <input id="cRut" placeholder="RUT y razón social de la empresa" aria-label="RUT y razón social" hidden>
+      <button class="btn primary" type="submit" id="payBtn">Pagar con Mercado Pago</button>
+      <button class="btn ghost" type="button" id="waBtn">Prefiero coordinar por WhatsApp</button>
+      <p class="small" id="payMsg" role="status"></p>
+      <p class="small">Pago seguro en Mercado Pago con tarjeta de crédito, débito o transferencia. Después del pago te pediremos tus planos.</p>
+    </form>
+  </div>
+</aside>
+
+<!-- Formularios ocultos para Netlify Forms: Netlify los detecta al publicar y envía
+     cada mensaje por correo (configurar el correo en Netlify → Notifications). -->
+<form name="contacto" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="subject"><input name="nombre"><input name="correo"><input name="comuna"><textarea name="mensaje"></textarea><input name="bot-field">
+</form>
+<form name="pedido" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="subject"><input name="canal"><input name="referencia"><input name="nombre"><input name="correo"><input name="comuna">
+  <input name="documento"><input name="rut"><textarea name="detalle"></textarea><input name="neto"><input name="total"><input name="bot-field">
+</form>
+
+<script src="precios.js"></script>
+<script>
+/* ===== CONFIGURACIÓN: edita estos datos ===== */
+const CONFIG = {
+  whatsapp: "56933455696",               // número sin + ni espacios
+  whatsappTexto: "+56 9 3345 5696",
+  email: "jovallejos@gmail.com"
+};
+/* Los precios e impuestos están en precios.js */
+const PRODUCTS = PRECIOS.productos;
+const PAGO_URL = "/.netlify/functions/crear-pago";
+
+const fmtCLP = n => "$" + Math.round(n).toLocaleString("es-CL");
+const fmtM2 = n => n.toLocaleString("es-CL") + " m²";
+const $ = id => document.getElementById(id);
+const waLink = text => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
+const tierLabel = (p, i) => PRECIOS.tierLabel(p, i);
+
+/* Aviso por correo con Netlify Forms. Nunca bloquea al cliente: si falla, sigue igual. */
+function notificar(form, datos){
+  const body = new URLSearchParams({"form-name": form, ...datos});
+  const envio = fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body: body.toString()}).catch(()=>{});
+  return Promise.race([envio, new Promise(r=>setTimeout(r, 3000))]);
+}
+function datosPedido(canal, ref){
+  const {neto, c} = resumen();
+  return {
+    subject: `${canal === "Mercado Pago" ? "Nueva venta en línea" : "Nuevo pedido por WhatsApp"} · ${fmtCLP(c.pagar)} · ${$("cName").value}`,
+    canal, referencia: ref || "", nombre: $("cName").value, correo: $("cMail").value, comuna: $("cComuna").value,
+    documento: $("cDoc").selectedOptions[0].text, rut: $("cRut").value,
+    detalle: cart.map(l=>`• ${l.name}: ${l.desde?"desde ":""}${fmtCLP(l.price)} neto`).join("\n"),
+    neto: fmtCLP(neto), total: fmtCLP(c.pagar)
+  };
+}
+const tierFor = (p, m2) => p.tiers.findIndex(t => !t.max || m2 <= t.max);   // -1 si supera el último tramo
+
+$("yr").textContent = new Date().getFullYear();
+$("lnkMail").href = "mailto:" + CONFIG.email; $("lnkMail").textContent = CONFIG.email; $("footMail").textContent = CONFIG.email;
+$("lnkWa").href = `https://wa.me/${CONFIG.whatsapp}`; $("lnkWa").textContent = CONFIG.whatsappTexto; $("footWa").textContent = CONFIG.whatsappTexto;
+
+// catálogo
+$("catalog").innerHTML = PRODUCTS.map(p => {
+  const rows = p.tiers
+    ? p.tiers.map((t,i)=>`<div class="tier"><span class="m">${tierLabel(p,i)}</span><span class="v">${fmtCLP(t.price)}</span><button class="add" type="button" data-add="${p.id}" data-tier="${i}">Agregar</button></div>`).join("")
+      + (p.over ? `<div class="tier over"><span class="m">${p.over}</span><a href="${waLink(`Hola, quiero cotizar el cálculo de: ${p.name}, ${p.over.toLowerCase()}.`)}" target="_blank" rel="noopener">Cotizar por WhatsApp</a></div>` : "")
+    : `<div class="tier"><span class="m">Valor según alcance</span><span class="v"><small>desde</small>${fmtCLP(p.desde)}</span><button class="add" type="button" data-add="${p.id}">Agregar</button></div>`;
+  return `<article class="item">
+    <div class="thumb"><img src="img/${p.img}.jpg" alt="${p.alt}" loading="lazy" width="1600" height="1067"><span class="code">${p.code}</span></div>
+    <div><h3>${p.name}</h3><p>${p.desc}</p><ul class="inc">${p.inc.map(i=>`<li>${i}</li>`).join("")}</ul></div>
+    <div class="tiers">${rows}${p.note ? `<p class="tnote">* ${p.note}</p>` : ""}</div>
+  </article>`;
+}).join("");
+
+// Producto de prueba: solo visible abriendo la página con ?prueba en la dirección
+const MODO_PRUEBA = new URLSearchParams(location.search).has("prueba");
+if (MODO_PRUEBA) {
+  const t = PRECIOS.prueba;
+  $("catalog").insertAdjacentHTML("afterbegin", `<div class="testbox">
+    <div><b>Modo prueba</b><p>Producto oculto para hacer pagos reales de bajo monto. Elige boleta o factura en el carrito para probar cada cuenta de Mercado Pago.</p></div>
+    <div class="tier"><span class="m">${t.name}</span><span class="v">${fmtCLP(t.price)}</span><button class="add" type="button" data-add="${t.id}">Agregar</button></div>
+  </div>`);
+}
+
+// cotizador por tramos
+const RANGES = {VIV:{min:20,max:800,step:5,def:120}, GAL:{min:100,max:10000,step:50,def:1500}};
+let quote = null;
+function setRange(){
+  const r = RANGES[$("qtipo").value], s = $("qm2");
+  s.min = r.min; s.max = r.max; s.step = r.step; s.value = r.def; $("qm2n").value = r.def;
+}
+function calc(){
+  const p = PRODUCTS.find(x=>x.id===$("qtipo").value);
+  const m2 = Math.max(1, Math.round(+$("qm2n").value || 0));
+  const i = tierFor(p, m2);
+  $("qScale").innerHTML = p.tiers.map((t,k)=>`<div class="${k===i?"on":""}"><span>${tierLabel(p,k)}</span><span>${fmtCLP(t.price)}</span></div>`).join("")
+    + (p.over ? `<div class="${i<0?"on":""}"><span>${p.over}</span><span>a medida</span></div>` : "");
+  const add = $("qAdd");
+  if (i < 0) {
+    $("qPrice").textContent = "A medida";
+    $("qTramo").textContent = `${fmtM2(m2)} · ${p.over.toLowerCase()}`;
+    $("qTax").textContent = "";
+    $("qHint").textContent = "Para superficies mayores te enviamos una cotización personalizada.";
+    add.textContent = "Cotizar por WhatsApp"; quote = null;
+  } else {
+    $("qPrice").textContent = fmtCLP(p.tiers[i].price);
+    $("qTramo").textContent = `${fmtM2(m2)} · tramo ${tierLabel(p,i).toLowerCase()} · valor neto`;
+    const n = p.tiers[i].price;
+    $("qTax").innerHTML = `<div><span>Con factura (+ IVA)</span><span>${fmtCLP(PRECIOS.calcular(n,"FACTURA").pagar)}</span></div>`
+      + `<div><span>Con boleta de honorarios</span><span>${fmtCLP(PRECIOS.calcular(n,"BOLETA_PN").bruto)}</span></div>`;
+    $("qHint").textContent = "Precio fijo por tramo de superficie construida. Pago 100 % anticipado." + (p.note ? " * " + p.note : "");
+    add.textContent = "Agregar al carrito";
+    quote = {id:p.id, tier:i, name:`${p.name} · ${tierLabel(p,i).toLowerCase()}`, detail:`Superficie declarada: ${fmtM2(m2)}`, price:p.tiers[i].price};
+  }
+}
+$("qtipo").addEventListener("input", ()=>{ setRange(); calc(); });
+$("qm2").addEventListener("input", ()=>{ $("qm2n").value = $("qm2").value; calc(); });
+$("qm2n").addEventListener("input", ()=>{ $("qm2").value = $("qm2n").value; calc(); });
+setRange(); calc();
+
+// carrito
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("se-cart3")||"[]"); } catch(e){}
+const save = () => { try{ localStorage.setItem("se-cart3",JSON.stringify(cart)); }catch(e){} };
+const fijos = () => cart.filter(l=>!l.desde);
+function resumen(){
+  const neto = fijos().reduce((s,l)=>s+l.price,0);
+  return {neto, c: PRECIOS.calcular(neto, $("cDoc").value)};
+}
+function render(){
+  $("cartCount").textContent = cart.length;
+  $("cartLines").innerHTML = cart.length ? cart.map((l,i)=>`<div class="line"><b>${l.name}</b><span class="p">${l.desde?"desde ":""}${fmtCLP(l.price)}</span><small>${l.detail}</small><button class="rm" type="button" data-rm="${i}">Quitar</button></div>`).join("")
+    : `<p class="empty">Tu carrito está vacío. Agrega un proyecto del catálogo o usa el cotizador por m².</p>`;
+  $("cartFoot").hidden = !cart.length;
+  if (!cart.length) return;
+
+  const doc = $("cDoc").value, hasDesde = cart.some(l=>l.desde), {neto, c} = resumen();
+  const row = (a,b,cls="") => `<div class="${cls}"><span>${a}</span><span>${b}</span></div>`;
+  let html = row("Subtotal neto", fmtCLP(neto));
+  if (doc === "FACTURA") html += row("IVA 19 %", fmtCLP(c.iva));
+  if (doc === "BOLETA_PN") html += row("Retención honorarios 15,25 %", fmtCLP(c.extra));
+  html += row("Total a pagar", fmtCLP(c.pagar), "total");
+  if (doc === "BOLETA_PN") html += `<p>Boleta por ${fmtCLP(c.bruto)} bruto. La retención de ${fmtCLP(c.retencion)} la declaramos nosotros al SII.</p>`;
+  if (doc === "BOLETA_EM") html += `<p>Boleta por ${fmtCLP(c.bruto)} bruto. Pagas el líquido; tu empresa retiene ${fmtCLP(c.retencion)} (15,25 %) y lo declara en su F29.</p>`;
+  if (hasDesde) html += `<p class="warn">Los proyectos con valor «desde» se cotizan antes de pagar y no están incluidos en este total.</p>`;
+  $("cartSum").innerHTML = html;
+
+  const needRut = doc !== "BOLETA_PN";
+  $("cRut").hidden = !needRut; $("cRut").required = needRut;
+  $("payBtn").disabled = !fijos().length;
+  $("payBtn").textContent = fijos().length ? `Pagar ${fmtCLP(c.pagar)} con Mercado Pago` : "Pago en línea no disponible";
+}
+function addItem(item, btn){
+  cart.push(item); save(); render();
+  if(btn){ const t=btn.textContent; btn.textContent="Agregado ✓"; btn.classList.add("done"); setTimeout(()=>{btn.textContent=t;btn.classList.remove("done")},1400); }
+}
+document.addEventListener("click", e=>{
+  const a = e.target.closest("[data-add]");
+  if(a && a.dataset.add === PRECIOS.prueba.id){ addItem({id:PRECIOS.prueba.id, name:PRECIOS.prueba.name, detail:"Solo para probar el pago · valor neto", price:PRECIOS.prueba.price}, a); return; }
+  if(a){ const p = PRODUCTS.find(x=>x.id===a.dataset.add);
+    if(p.tiers){ const i=+a.dataset.tier; addItem({id:p.id, tier:i, name:`${p.name} · ${tierLabel(p,i).toLowerCase()}`, detail:"Precio fijo por tramo · valor neto", price:p.tiers[i].price}, a); }
+    else addItem({id:p.id, name:p.name, detail:"Se cotiza según alcance antes del pago", price:p.desde, desde:true}, a); }
+  const r = e.target.closest("[data-rm]");
+  if(r){ cart.splice(+r.dataset.rm,1); save(); render(); }
+});
+$("qAdd").addEventListener("click", e=>{
+  if(!quote){ const p = PRODUCTS.find(x=>x.id===$("qtipo").value);
+    window.open(waLink(`Hola, quiero cotizar el cálculo de: ${p.name}, ${fmtM2(+$("qm2n").value)}.`), "_blank", "noopener"); return; }
+  addItem({...quote}, e.currentTarget);
+});
+$("cDoc").addEventListener("change", render);
+
+const drawer=$("drawer"), scrim=$("scrim");
+function openCart(){ scrim.hidden=false; drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); $("closeCart").focus(); }
+function closeCart(){ drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); scrim.hidden=true; }
+$("openCart").onclick=openCart; $("closeCart").onclick=closeCart; scrim.onclick=closeCart;
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeCart(); });
+
+// Pagar con Mercado Pago: el servidor calcula el monto y devuelve el enlace de pago
+$("checkout").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const btn = $("payBtn"), msg = $("payMsg"), label = btn.textContent;
+  btn.disabled = true; btn.textContent = "Conectando con Mercado Pago…"; msg.textContent = "";
+  try {
+    const r = await fetch(PAGO_URL, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({
+      items: fijos().map(l=>({id:l.id, tier:l.tier})),
+      doc: $("cDoc").value, nombre: $("cName").value, email: $("cMail").value,
+      comuna: $("cComuna").value, rut: $("cRut").value
+    })});
+    const out = await r.json().catch(()=>({}));
+    if (!r.ok || !out.url) throw new Error(out.error || "");
+    try { localStorage.setItem("se-pedido", JSON.stringify({ref: out.referencia, total: out.total, items: fijos().map(l=>l.name), doc: $("cDoc").selectedOptions[0].text, nombre: $("cName").value, correo: $("cMail").value})); } catch(_){}
+    btn.textContent = "Abriendo Mercado Pago…";
+    await notificar("pedido", {...datosPedido("Mercado Pago", out.referencia), subject: `Pago iniciado ${out.referencia} · ${fmtCLP(out.total)} · ${$("cName").value}`});
+    location.href = out.url;
+  } catch(err) {
+    msg.textContent = (err.message || "El pago en línea no está disponible en este momento.") + " Puedes coordinar tu pedido por WhatsApp.";
+    btn.disabled = false; btn.textContent = label;
+  }
+});
+
+// Alternativa: enviar el pedido por WhatsApp (no vacía el carrito)
+$("waBtn").addEventListener("click", ()=>{
+  const {neto, c} = resumen(), doc = $("cDoc").selectedOptions[0].text;
+  const text = `Hola Sur Estructural, quiero coordinar este pedido:\n\n` +
+    cart.map(l=>`• ${l.name}: ${l.desde?"desde ":""}${fmtCLP(l.price)} neto`).join("\n") +
+    `\n\nSubtotal neto: ${fmtCLP(neto)}\nTotal a pagar: ${fmtCLP(c.pagar)}\nDocumento: ${doc}${$("cRut").value?` (${$("cRut").value})`:""}` +
+    `\nNombre: ${$("cName").value}\nCorreo: ${$("cMail").value}\nComuna: ${$("cComuna").value}`;
+  window.open(waLink(text), "_blank", "noopener");
+  notificar("pedido", datosPedido("WhatsApp"));
+});
+
+$("cform").addEventListener("submit", e=>{
+  e.preventDefault();
+  const msg = `Hola Sur Estructural, soy ${$("fName").value} (${$("fMail").value}).\nComuna de la obra: ${$("fComuna").value}\n\n${$("fMsg").value}`;
+  window.open(waLink(msg), "_blank", "noopener");
+  notificar("contacto", {
+    subject: `Nueva consulta web · ${$("fName").value} · ${$("fComuna").value}`,
+    nombre: $("fName").value, correo: $("fMail").value, comuna: $("fComuna").value, mensaje: $("fMsg").value
+  });
+  $("cformOk").hidden = false;
+});
+render();
+</script>
+</body>
+</html>
