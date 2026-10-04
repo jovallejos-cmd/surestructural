@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sur Estructural","url":"https://www.surestructural.cl/","image":"https://www.surestructural.cl/img/portada.jpg","description":"Proyectos de cálculo estructural en línea para casas, ampliaciones, galpones y obras menores en Chile.","areaServed":"CL","email":"jovallejos@gmail.com","telephone":"+56933455696","priceRange":"$390.000 - $1.800.000"}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sur Estructural","url":"https://www.surestructural.cl/","image":"https://www.surestructural.cl/img/portada.jpg","description":"Proyectos de cálculo estructural en línea para casas, ampliaciones, galpones y obras menores en Chile.","areaServed":"CL","email":"jovallejos@gmail.com","telephone":"+56933455696","priceRange":"$390.000 - $1.800.000","founder":{"@type":"Person","name":"Jorge Vallejos Cuevas","jobTitle":"Ingeniero Civil Estructural","alumniOf":"Universidad de Concepción"}}
 </script>
 <style>
 /* Layout: fondo blanco liso (igual que el logo), fotos de obra enmarcadas, catálogo como tabla de partidas.
@@ -202,6 +202,16 @@ input[type=range]{padding:0;border:0;background:transparent;accent-color:var(--s
 .about figure img{width:100%;height:100%;object-fit:cover}
 .about .txt{display:grid;gap:16px}
 .about .txt p{color:var(--muted)}
+.ingeniero{border:1.5px solid var(--ink);background:var(--sheet)}
+.ing-head{display:grid;gap:4px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ing-tag{font:500 .68rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--wood)}
+.ing-head b{font:800 1.25rem/1.2 var(--f-display)}
+.ing-grid{display:grid;grid-template-columns:1.2fr 1.2fr .8fr}
+.ing-grid > div{padding:10px 16px;border-right:1px solid var(--line);font-size:.9rem;min-width:0}
+.ing-grid > div:last-child{border-right:0}
+.ing-grid i{display:block;font:normal 500 .64rem/1.6 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ing-num{font:800 1.3rem/1 var(--f-display);color:var(--steel)}
+@media (max-width:560px){.ing-grid{grid-template-columns:1fr}.ing-grid > div{border-right:0;border-bottom:1px solid var(--line)}.ing-grid > div:last-child{border-bottom:0}}
 @media (max-width:860px){.about{grid-template-columns:1fr}}
 
 /* faq */
@@ -418,9 +428,16 @@ footer{border-top:3px solid var(--steel);padding-block:36px calc(28px + env(safe
       <div class="txt">
         <span class="eyebrow">Nosotros</span>
         <h2>Ingeniería estructural hecha en Chile</h2>
-        <!-- EDITAR: agrega el nombre del ingeniero responsable, universidad y años de experiencia -->
         <p>Sur Estructural es una oficina de ingeniería dedicada al cálculo estructural de casas, ampliaciones, galpones y obras menores. Trabajamos a distancia con clientes, arquitectos y constructoras de todas las regiones del país.</p>
-        <p>Cada proyecto lo desarrolla y firma un ingeniero civil, con el respaldo de la normativa chilena vigente y un trato directo durante todo el proceso, hasta que la Dirección de Obras aprueba tu permiso.</p>
+        <p>Cada proyecto lo desarrolla y firma personalmente nuestro ingeniero responsable, con el respaldo de la normativa chilena vigente y un trato directo durante todo el proceso, hasta que la Dirección de Obras aprueba tu permiso.</p>
+        <div class="ingeniero">
+          <div class="ing-head"><span class="ing-tag">Ingeniero responsable</span><b>Jorge Vallejos Cuevas</b></div>
+          <div class="ing-grid">
+            <div><i>Profesión</i>Ingeniero Civil Estructural</div>
+            <div><i>Universidad</i>Universidad de Concepción</div>
+            <div><i>Experiencia</i><span class="ing-num">18</span> años</div>
+          </div>
+        </div>
         <p class="nod">Nuestro nombre mira al sur: a sus bosques de araucarias, alerces y coigües, que llevan siglos en pie sobre suelo sísmico. Acero, hormigón y madera, calculados para durar igual.</p>
         <div><a class="btn ghost" href="#contacto">Habla con un ingeniero</a></div>
       </div>
